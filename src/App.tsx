@@ -3,6 +3,7 @@ import { menuItems } from "./data/db"
 import { MenuItem } from "./components/MenuItem"
 import { useOrder } from "./hooks/useOrder";
 import { OrderItem } from "./components/OrderItem";
+import { OrderTotal } from "./components/OrderTotal";
 
 function App() {
   const { order, handleOrder, deleteOrder } = useOrder();
@@ -42,6 +43,10 @@ function App() {
                 />
               )
           }
+
+          <OrderTotal
+            order={order}
+          />
         </section>
       </main>
     </>
