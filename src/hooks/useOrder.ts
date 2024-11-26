@@ -1,0 +1,37 @@
+import { useState } from "react";
+import { TMenuItem, TOrderItem } from "../types";
+
+export const useOrder = () => {
+  const [order, setOrder] = useState<TOrderItem[]>([]);
+
+  // Add item to order
+  const addOrder = (item: TMenuItem) => {
+    setOrder([...order, { ...item, quantity: 1 }]);
+  };
+
+  // Increase quantity of item in order
+  const increaseQuantity = (item: TMenuItem) => {
+    const newOrder = order.map((orderItem) => orderItem.id === item.id ? { ...orderItem, quantity: orderItem.quantity + 1 } : orderItem);
+    setOrder(newOrder);
+  };
+
+  // Delete item from order
+  const deleteOrder = (item: TMenuItem) => {
+    const newOrder = order.filter((orderItem) => orderItem.id !== item.id);
+    setOrder(newOrder);
+  };
+
+  // Handle order
+  const handleOrder = (item: TMenuItem) => {
+    const existingItem = order.find((orderItem) => orderItem.id === item.id)!;
+
+    return existingItem
+      ? increaseQuantity(item)
+      : addOrder(item);
+  };
+
+  return {
+    handleOrder,
+    deleteOrder,
+  };
+};
