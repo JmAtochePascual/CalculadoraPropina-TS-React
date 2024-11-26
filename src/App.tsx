@@ -7,7 +7,7 @@ import { OrderTotal } from "./components/OrderTotal";
 import Tip from "./components/Tip";
 
 function App() {
-  const { order, handleOrder, deleteOrder, tip, setTip } = useOrder();
+  const { order, handleOrder, deleteOrder, tip, setTip, resetOrder } = useOrder();
   // State derived
   const orderEmpty = order.length === 0;
 
@@ -36,24 +36,29 @@ function App() {
           {
             orderEmpty
               ? <p className="text-center text-2xl">La orden está vacía</p>
-              : order.map((item) =>
-                <OrderItem
-                  key={item.id}
-                  item={item}
-                  deleteOrder={deleteOrder}
+              : <>
+                {
+                  order.map((item) =>
+                    <OrderItem
+                      key={item.id}
+                      item={item}
+                      deleteOrder={deleteOrder}
+                    />
+                  )
+                }
+
+                <Tip
+                  tip={tip}
+                  setTip={setTip}
                 />
-              )
+
+                <OrderTotal
+                  tip={tip}
+                  order={order}
+                  resetOrder={resetOrder}
+                />
+              </>
           }
-
-          <Tip
-            tip={tip}
-            setTip={setTip}
-          />
-
-          <OrderTotal
-            tip={tip}
-            order={order}
-          />
         </section>
       </main>
     </>

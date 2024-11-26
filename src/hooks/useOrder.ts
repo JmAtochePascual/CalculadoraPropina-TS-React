@@ -20,6 +20,16 @@ export const useOrder = () => {
   const deleteOrder = (id: TOrderItem['id']) => {
     const newOrder = order.filter((orderItem) => orderItem.id !== id);
     setOrder(newOrder);
+
+    if (newOrder.length === 0) {
+      setTip(0);
+    }
+  };
+
+  // Reset order
+  const resetOrder = () => {
+    setOrder([]);
+    setTip(0);
   };
 
   // Handle order
@@ -37,5 +47,6 @@ export const useOrder = () => {
     setTip,
     handleOrder,
     deleteOrder,
+    resetOrder,
   };
 };
