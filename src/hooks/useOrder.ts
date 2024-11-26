@@ -16,8 +16,8 @@ export const useOrder = () => {
   };
 
   // Delete item from order
-  const deleteOrder = (item: TMenuItem) => {
-    const newOrder = order.filter((orderItem) => orderItem.id !== item.id);
+  const deleteOrder = (id: TOrderItem['id']) => {
+    const newOrder = order.filter((orderItem) => orderItem.id !== id);
     setOrder(newOrder);
   };
 
@@ -31,6 +31,7 @@ export const useOrder = () => {
   };
 
   return {
+    order,
     handleOrder,
     deleteOrder,
   };
