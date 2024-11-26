@@ -10,7 +10,7 @@ export const OrderItem = ({ item, deleteOrder }: OrderItemProps) => {
   return (
     <div className="mb-4 flex justify-between items-center border-b border-gray-200 pb-4">
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         <p className="font-semibold">
           {item.name} - <span className="text-gray-500">{formatCurrency(item.price)}</span>
         </p>

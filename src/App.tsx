@@ -4,9 +4,10 @@ import { MenuItem } from "./components/MenuItem"
 import { useOrder } from "./hooks/useOrder";
 import { OrderItem } from "./components/OrderItem";
 import { OrderTotal } from "./components/OrderTotal";
+import Tip from "./components/Tip";
 
 function App() {
-  const { order, handleOrder, deleteOrder } = useOrder();
+  const { order, handleOrder, deleteOrder, tip, setTip } = useOrder();
   // State derived
   const orderEmpty = order.length === 0;
 
@@ -44,7 +45,13 @@ function App() {
               )
           }
 
+          <Tip
+            tip={tip}
+            setTip={setTip}
+          />
+
           <OrderTotal
+            tip={tip}
             order={order}
           />
         </section>

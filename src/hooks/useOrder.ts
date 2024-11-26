@@ -3,6 +3,7 @@ import { TMenuItem, TOrderItem } from "../types";
 
 export const useOrder = () => {
   const [order, setOrder] = useState<TOrderItem[]>([]);
+  const [tip, setTip] = useState<number>(0);
 
   // Add item to order
   const addOrder = (item: TMenuItem) => {
@@ -32,6 +33,8 @@ export const useOrder = () => {
 
   return {
     order,
+    tip,
+    setTip,
     handleOrder,
     deleteOrder,
   };
