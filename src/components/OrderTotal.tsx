@@ -23,7 +23,8 @@ export const OrderTotal = ({ order, tip, resetOrder }: OrderTotalProps) => {
 
       <button
         onClick={resetOrder}
-        className="w-full p-2 block text-center rounded-md bg-gray-800 text-white hover:bg-gray-900 transition-colors duration-300">
+        disabled={tip === 0}
+        className="w-full p-2 block text-center rounded-md bg-gray-800 text-white hover:bg-gray-900 transition-colors duration-300 disabled:opacity-50">
         Resetear Orden
       </button>
     </div>
