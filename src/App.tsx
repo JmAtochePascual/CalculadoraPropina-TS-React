@@ -8,8 +8,7 @@ import Tip from "./components/Tip";
 
 function App() {
   const { order, handleOrder, deleteOrder, tip, setTip, resetOrder } = useOrder();
-  // State derived
-  const orderEmpty = order.length === 0;
+  const isOrderEmpty = order.length === 0;
 
   return (
     <>
@@ -34,7 +33,7 @@ function App() {
           <h2 className="mb-4 text-2xl font-bold text-center">Orden</h2>
 
           {
-            orderEmpty
+            isOrderEmpty
               ? <p className="text-center text-2xl">La orden está vacía</p>
               : <>
                 {
