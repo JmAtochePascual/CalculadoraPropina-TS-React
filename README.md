@@ -1,4 +1,4 @@
-# Cotizador de Prestamo
+# Calculadora de Propina
 
 Esta es una aplicación de pedidos interactiva donde los usuarios pueden seleccionar productos de un menú, añadirlos a una orden, ajustar cantidades y agregar una propina antes de confirmar el total.
 
