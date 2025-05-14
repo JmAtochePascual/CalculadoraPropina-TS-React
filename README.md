@@ -27,8 +27,6 @@ Esta es una aplicación de pedidos interactiva donde los usuarios pueden selecci
 
 ## Estructura del Proyecto
 
-## Estructura del Proyecto
-
 - **src/**: Carpeta con el código fuente.
   - **components/**: Componentes de React utilizados en el proyecto.
     - **Header.tsx**: Encabezado principal de la app.
